@@ -4,6 +4,16 @@
 name: Generate Snake
 
 # Controls when the action will run. This action runs every 6 hours.
+- name: Set up Node.js
+  uses: actions/setup-node@v2
+  with:
+    node-version: 16
+- name: Set output using environment file
+  run: echo "OUTPUT_VAR=my-value" >> $GITHUB_ENV
+
+# In a later step, you can access this environment variable as follows:
+- name: Access output from environment file
+  run: echo $OUTPUT_VAR
 
 on:
   schedule:
